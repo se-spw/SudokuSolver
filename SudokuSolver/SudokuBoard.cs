@@ -103,5 +103,29 @@ namespace SudokuSolver {
       }
       return status;
     }
+
+    public override string ToString() {
+      StringBuilder sb = new StringBuilder();
+
+     
+      for (int i = 0; i < size; i++) {
+        if (i % blocks == 0) {
+          sb.Append(new string('-', (size + size/blocks)*2 + 1));
+          sb.Append('\n');
+        }
+        for(int j = 0; j < size; j++) {
+          if (j % blocks == 0) {
+            sb.Append("| ");
+          }
+          sb.Append(Convert.ToString(board[i, j]));
+          sb.Append(' ');
+        }
+        sb.Append('|');
+        sb.Append('\n');
+      }
+      sb.Append(new string('-', (size + size/blocks)*2 + 1));
+
+      return sb.ToString();
+    }
   }
 }
